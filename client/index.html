@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seruchat</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<main>
+    <!-- Login -->
+    <section id="loginSection">
+        <h1>Secure Chat</h1>
+        <form id="loginForm">
+            <label for="loginEmail">
+                Email
+            </label>
+            <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Email"
+                    required
+            >
+            <label for="loginPassword">
+                Password
+            </label>
+            <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Password"
+                    required
+            >
+            <button type="submit">
+                Login
+            </button>
+        </form>
+        <p id="loginMessage"></p>
+        <button type="button" id="showRegister">
+            Create account
+        </button>
+    </section>
+    <!-- Register -->
+    <section id="registerSection" hidden>
+        <h1>Create Account</h1>
+        <form id="registerForm">
+            <label for="registerUsername">
+                Username
+            </label>
+            <input
+                    type="text"
+                    id="registerUsername"
+                    placeholder="Username"
+                    required
+            >
+            <label for="registerEmail">
+                Email
+            </label>
+            <input
+                    type="email"
+                    id="registerEmail"
+                    placeholder="Email"
+                    required
+            >
+            <label for="registerPassword">
+                Password
+            </label>
+            <input
+                    type="password"
+                    id="registerPassword" minlength="12" autocomplete="new-password"
+                    placeholder="Password"
+                    required
+            >
+            <label for="confirmPassword">
+                Confirm password
+            </label>
+            <input
+                    type="password"
+                    id="confirmPassword" minlength="12" autocomplete="new-password"
+                    placeholder="Confirm password"
+                    required
+            >
+            <button type="submit">
+                Create account
+            </button>
+        </form>
+        <p id="registerMessage"></p>
+        <button type="button" id="showLogin">
+            Back to login
+        </button>
+    </section>
+    <!-- User area -->
+    <section id="userInfo" hidden>
+        <p id="keyStatus" role="status"></p>
+        <section class="security-panel"><h2>Khóa của bạn</h2><p>Gửi fingerprint này cho người bạn muốn chat để đối chiếu trực tiếp.</p><code id="ownFingerprint"></code></section>
+        <p id="operationStatus" role="status" aria-live="polite"></p>
+        <header>
+            <h1>Secure Chat</h1>
+            <div>
+                <p id="username"></p>
+                <p id="userEmail"></p>
+                <p>
+                    Your User ID:
+                    <span id="currentUserId"></span>
+                </p>
+                <button
+                        type="button"
+                        id="copyUserId"
+                >
+                    Copy User ID
+                </button>
+                <p id="copyMessage"></p>
+                <button
+                        type="button"
+                        id="logout"
+                >
+                    Logout
+                </button>
+                <p id="logoutMessage"></p>
+            </div>
+        </header>
+        <!-- Find user -->
+        <section id="findUserSection">
+            <h2>Tìm người dùng</h2>
+            <form id="findUserForm">
+                <label for="userId">
+                    User ID
+                </label>
+                <input
+                        type="text"
+                        id="userId"
+                        placeholder="Enter user ID"
+                        required
+                >
+                <button type="submit">
+                    Find User
+                </button>
+            </form>
+            <p id="findUserMessage"></p>
+        </section>
+        <!-- Found user -->
+        <section id="foundUser" hidden>
+            <h2>User</h2>
+            <p>
+                Username:
+                <span id="foundUsername"></span>
+            </p>
+            <p>
+                User ID:
+                <span id="foundUserId"></span>
+            </p>
+            <button
+                    type="button"
+                    id="addFriend"
+            >
+                Kết bạn
+            </button>
+            <p id="friendMessage"></p>
+            <button type="button" id="blockFoundUser">Chặn</button>
+            <p id="foundRelationship"></p>
+            <div id="foundExtraActions"></div>
+        </section>
+        <!-- Friend requests -->
+        <section id="friendRequestsSection">
+            <h2>Lời mời nhận được</h2>
+            <div id="friendRequests">
+                <!-- Friend requests will be inserted here -->
+            </div>
+        </section>
+        <section id="outgoingRequestsSection"><h2>Lời mời đã gửi</h2><div id="outgoingRequests"></div></section>
+        <!-- Friends -->
+        <section id="friendsSection">
+            <h2>Bạn bè</h2>
+            <div id="friendsList">
+                <!-- Friends will be inserted here -->
+            </div>
+        </section>
+        <!-- Conversations -->
+        <section id="blockedUsersSection"><h2>Người đã chặn</h2><div id="blockedUsers"></div></section>
+        <section id="conversationsSection">
+            <h2>Cuộc trò chuyện</h2>
+            <div id="conversationsList">
+                <!-- Conversations will be inserted here -->
+            </div>
+        </section>
+        <section id="chatSection" hidden>
+            <h2>Chat</h2>
+            <p id="chatUser"></p>
+            <p id="chatRelationship" role="status"></p>
+            <div id="chatActions"></div>
+            <section class="security-panel"><h3>Xác minh người đang chat</h3><code id="peerFingerprint"></code><p id="peerSecurityStatus" role="status"></p>
+            <label for="peerVerifyInput">Fingerprint bạn nhận trực tiếp từ người kia</label><input id="peerVerifyInput" autocomplete="off" placeholder="Dán đủ fingerprint của người kia"><button id="verifyPeer" type="button">Xác minh fingerprint</button></section>
+            <div id="messagesList">
+                <!-- Messages will be inserted here -->
+            </div>
+            <form id="messageForm">
+                <textarea id="messageInput" rows="2" placeholder="Nhập tin nhắn. Ctrl + Enter để gửi." aria-label="Tin nhắn" required></textarea>
+                <button type="submit" id="sendMessageButton">
+                    Send
+                </button>
+            </form>
+            <p id="messageStatus"></p>
+        </section>
+    </section>
+</main>
+<dialog id="confirmDialog" aria-labelledby="confirmTitle" aria-describedby="confirmDescription">
+    <form method="dialog">
+        <h2 id="confirmTitle"></h2>
+        <p id="confirmDescription"></p>
+        <div class="confirm-actions">
+            <button id="confirmNo" value="no" autofocus>No</button>
+            <button id="confirmYes" value="yes">Yes</button>
+        </div>
+    </form>
+</dialog>
+<dialog id="recoveryDialog" aria-labelledby="recoveryTitle"><form method="dialog" id="recoveryForm">
+<h2 id="recoveryTitle"></h2><p>Mã này mở khóa bản sao khóa riêng. Giữ riêng, không gửi cho người khác. Mật khẩu đăng nhập không thay thế mã này.</p>
+<div id="recoverySave"><code id="recoveryCode"></code><button id="downloadRecovery" type="button">Tải mã khôi phục</button><label><input id="recoverySaved" type="checkbox"> Tôi đã lưu mã ở nơi riêng và hiểu mất mã cùng khóa local sẽ mất khả năng đọc tin.</label></div>
+<div id="recoveryUnlock"><label for="recoveryInput">Mã khôi phục</label><input id="recoveryInput" type="password" autocomplete="off"></div>
+<div class="confirm-actions"><button value="no" formnovalidate>No</button><button value="yes">Yes</button></div></form></dialog>
+<script src="/js/security/transport.js"></script>
+<script src="/js/security/protocol.js"></script>
+<script src="/js/encryption/keyManager.js"></script>
+<script src="/js/encryption/encryption.js"></script>
+<script src="/js/encryption/decryption.js"></script>
+<script src="/js/security/keys.js"></script>
+<script src="/js/security/messages.js"></script>
+<script src="/js/keyIntegration.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>

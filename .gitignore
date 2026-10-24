@@ -1,0 +1,9 @@
+server/node_modules/
+server/.env
+encryption/*.class
+encryption/keys/
+*.log
+
+# Recovery exports and encrypted vaults are personal account data.
+*recovery*.txt
+vault-v2.json

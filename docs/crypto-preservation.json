@@ -1,0 +1,24 @@
+{
+  "browser_files": {
+    "keyManager.js": "1e181815105f349ea18ad5117361c43ed75f67dda980ba26fb5878aeb72d2ea3",
+    "encryption.js": "d98efd1d4e8b1dcae5f83a088afc888becb80113a220b6684333059852876c3a",
+    "decryption.js": "f7209d6e56e7a59bdc20c6ce4c1b2973dcb50ce57882dc5e2976013e18cc4f16"
+  },
+  "java_methods": {
+    "Sender.java": {
+      "generateKeyPair": "256832407dacdb99234dfd3ebca19c8461bc780c2cd3cf98f97c44077cae06df",
+      "deriveKey": "19c3b125cc5d7a6a08a9fc73b9070a9faa5526aaf4d14dcbe817afc1aefc3d8f",
+      "x25519": "200393a64a4fb4cfc9b76a32e8bc5fc659cfa5bc3d66b5f5252a61bfb02ff61f",
+      "hkdf": "40deebc48a1af18a0898186abccdb98b24b8e008432e9e6ac75187d64d75311a",
+      "aesGcmEncrypt": "2ebe5c8eec6bac8a1d92300ba6be2a4a41db5895583b73cc542d8a234e1122de",
+      "exportPublicKey": "834de34111867a77cf8bb3f8adc7b116d7addd1c73d155602e479d760f4965ab"
+    },
+    "Receiver.java": {
+      "x25519": "050cd24b960162d7a6abc3b209112efc36b8650dc7797437abbc38c3d897ad88",
+      "hkdf": "f028f8573e3ae013d3edb0d814435c566dae36174086c65aab573c472ba79a03",
+      "aesGcmDecrypt": "e2e9d2d1c9703dded7beccd809f3ab72efef313a25d27dc1758aafe49aed1cf8",
+      "receiveMessage": "92bca29cecc9c4a82c4498de2f591dadb1241a1df918e70dddb95ee8c1ca6baf"
+    }
+  },
+  "normalization": "Java Markdown escapes and non-breaking indentation removed; method-body whitespace ignored. HTTP/storage/CLI orchestration may change."
+}

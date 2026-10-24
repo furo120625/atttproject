@@ -1,0 +1,572 @@
+/* ================================
+   Base
+================================ */
+* {
+    box-sizing: border-box;
+}
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1d2a4a;
+    background: #3858e9;
+}
+/* ================================
+   Authentication
+================================ */
+#loginSection,
+#registerSection {
+    width: min(100% - 32px, 480px);
+    margin: 0 auto;
+    padding: 48px 0;
+}
+/* Logo / title */
+#loginSection > h1,
+#registerSection > h1 {
+    margin: 0 0 32px;
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    text-align: center;
+}
+/* Card */
+#loginForm,
+#registerForm {
+    padding: 40px;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+/* Labels */
+#loginForm label,
+#registerForm label {
+    display: block;
+    margin-bottom: 8px;
+    color: #1d2a4a;
+    font-size: 14px;
+    font-weight: 600;
+}
+/* Inputs */
+#loginForm input,
+#registerForm input {
+    width: 100%;
+    height: 48px;
+    margin-bottom: 20px;
+    padding: 0 14px;
+    border: 1px solid #c8ceda;
+    border-radius: 3px;
+    background: #ffffff;
+    color: #1d2a4a;
+    font: inherit;
+    font-size: 15px;
+    outline: none;
+    transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+}
+#loginForm input::placeholder,
+#registerForm input::placeholder {
+    color: #7b8497;
+}
+#loginForm input:focus,
+#registerForm input:focus {
+    border-color: #3858e9;
+    box-shadow: 0 0 0 2px rgba(56, 88, 233, 0.12);
+}
+/* Submit button */
+#loginForm button,
+#registerForm button {
+    width: 100%;
+    height: 48px;
+    margin-top: 4px;
+    border: 0;
+    border-radius: 3px;
+    background: #3858e9;
+    color: #ffffff;
+    font: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+            background 0.2s ease,
+            transform 0.2s ease;
+}
+#loginForm button:hover,
+#registerForm button:hover {
+    background: #2f4bd0;
+}
+#loginForm button:active,
+#registerForm button:active {
+    transform: translateY(1px);
+}
+/* Messages */
+#loginMessage,
+#registerMessage {
+    min-height: 20px;
+    margin: 12px 0 0;
+    color: #d63638;
+    font-size: 14px;
+    text-align: center;
+}
+/* Switch login / register */
+#showRegister,
+#showLogin {
+    display: block;
+    margin: 20px auto 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #ffffff;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+#showRegister:hover,
+#showLogin:hover {
+    text-decoration: underline;
+}
+/* ================================
+   Responsive
+================================ */
+@media (max-width: 480px) {
+    #loginSection,
+    #registerSection {
+        width: min(100% - 24px, 480px);
+        padding: 32px 0;
+    }
+    #loginSection > h1,
+    #registerSection > h1 {
+        font-size: 30px;
+        margin-bottom: 24px;
+    }
+    #loginForm,
+    #registerForm {
+        padding: 28px 24px;
+    }
+}
+/* ================================
+   User area
+================================ */
+#userInfo {
+    min-height: 100vh;
+    background: #ffffff;
+}
+/* ================================
+   Top bar
+================================ */
+#userInfo > header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 72px;
+    padding: 0 32px;
+    border-bottom: 1px solid #e4eaf2;
+    background: #ffffff;
+}
+/* Logo */
+#userInfo > header > h1 {
+    margin: 0;
+    color: #1877f2;
+    font-size: 22px;
+    font-weight: 700;
+}
+/* User information */
+#userInfo > header > div {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+/* Hide unnecessary paragraphs from header layout */
+#username,
+#userEmail,
+#userInfo > header p {
+    margin: 0;
+    color: #536174;
+    font-size: 14px;
+}
+/* User ID */
+#currentUserId {
+    color: #536174;
+    font-family: monospace;
+    font-size: 13px;
+}
+/* Copy button */
+#copyUserId {
+    padding: 8px 12px;
+    border: 1px solid #d7e1ef;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #1877f2;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+#copyUserId:hover {
+    background: #f0f6ff;
+}
+/* Logout */
+#logout {
+    padding: 9px 16px;
+    border: 0;
+    border-radius: 6px;
+    background: #1877f2;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+#logout:hover {
+    background: #0d65d9;
+}
+/* ================================
+   Main content
+================================ */
+#findUserSection,
+#foundUser,
+#friendRequestsSection,
+#friendsSection,
+#conversationsSection,
+#chatSection {
+    width: min(100% - 48px, 900px);
+    margin: 0 auto;
+}
+/* ================================
+   Section headings
+================================ */
+#userInfo h2 {
+    margin: 0 0 18px;
+    color: #17233c;
+    font-size: 20px;
+    font-weight: 700;
+}
+/* ================================
+   Find user
+================================ */
+#findUserSection {
+    margin-top: 40px;
+}
+#findUserForm {
+    display: flex;
+    gap: 10px;
+}
+#findUserForm label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+#userId {
+    flex: 1;
+    height: 46px;
+    padding: 0 14px;
+    border: 1px solid #d6e0ed;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #17233c;
+    font: inherit;
+    font-size: 14px;
+    outline: none;
+}
+#userId::placeholder {
+    color: #8b98aa;
+}
+#userId:focus {
+    border-color: #7eaeeb;
+    box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.08);
+}
+#findUserForm button {
+    height: 46px;
+    padding: 0 20px;
+    border: 0;
+    border-radius: 6px;
+    background: #1877f2;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+#findUserForm button:hover {
+    background: #0d65d9;
+}
+/* ================================
+   Found user
+================================ */
+#foundUser {
+    margin-top: 24px;
+    padding: 20px;
+    border: 1px solid #dfe7f1;
+    border-radius: 8px;
+    background: #f7faff;
+}
+#foundUser p {
+    margin: 6px 0;
+    color: #536174;
+    font-size: 14px;
+}
+#foundUser span {
+    color: #17233c;
+    font-weight: 600;
+}
+#addFriend {
+    margin-top: 12px;
+    padding: 9px 16px;
+    border: 0;
+    border-radius: 6px;
+    background: #1877f2;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+/* ================================
+   Friends / Requests / Conversations
+================================ */
+#friendRequestsSection,
+#friendsSection,
+#conversationsSection {
+    margin-top: 40px;
+}
+/* Lists */
+#friendRequests,
+#friendsList,
+#conversationsList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+/* ================================
+   List items
+================================ */
+#friendRequests > div,
+#friendsList > div,
+#conversationsList > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 64px;
+    padding: 12px 16px;
+    border: 1px solid #e3e9f2;
+    border-radius: 8px;
+    background: #ffffff;
+    transition:
+            background 0.2s ease,
+            border-color 0.2s ease;
+}
+#friendRequests > div:hover,
+#friendsList > div:hover,
+#conversationsList > div:hover {
+    border-color: #c9d9ed;
+    background: #f7faff;
+}
+/* Text inside list items */
+#friendRequests p,
+#friendsList p,
+#conversationsList p {
+    margin: 2px 0;
+    color: #536174;
+    font-size: 14px;
+}
+#friendRequests p:first-child,
+#friendsList p:first-child,
+#conversationsList p:first-child {
+    color: #17233c;
+    font-weight: 600;
+}
+/* ================================
+   Buttons inside lists
+================================ */
+#friendRequests button,
+#conversationsList button {
+    padding: 8px 14px;
+    border: 0;
+    border-radius: 6px;
+    background: #1877f2;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+#friendRequests button:hover,
+#conversationsList button:hover {
+    background: #0d65d9;
+}
+/* Reject */
+#friendRequests .rejectFriend {
+    margin-left: 6px;
+    background: #eef3f9;
+    color: #536174;
+}
+#friendRequests .rejectFriend:hover {
+    background: #e3eaf3;
+}
+/* ================================
+   Chat
+================================ */
+#chatSection {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 24px;
+    border: 1px solid #dfe7f1;
+    border-radius: 10px;
+    background: #f7faff;
+}
+#chatUser {
+    margin: -8px 0 20px;
+    color: #7a8799;
+    font-size: 14px;
+}
+#messagesList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 240px;
+    max-height: 480px;
+    margin-bottom: 16px;
+    padding: 16px;
+    overflow-y: auto;
+    border: 1px solid #e1e8f1;
+    border-radius: 8px;
+    background: #ffffff;
+}
+/* Message form */
+#messageForm {
+    display: flex;
+    gap: 10px;
+}
+#messageInput {
+    flex: 1;
+    height: 44px;
+    padding: 0 14px;
+    border: 1px solid #d6e0ed;
+    border-radius: 6px;
+    outline: none;
+    font: inherit;
+    font-size: 14px;
+}
+#messageInput:focus {
+    border-color: #7eaeeb;
+    box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.08);
+}
+#messageForm button {
+    height: 44px;
+    padding: 0 20px;
+    border: 0;
+    border-radius: 6px;
+    background: #1877f2;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+}
+/* ================================
+   Status messages
+================================ */
+#copyMessage,
+#logoutMessage,
+#findUserMessage,
+#friendMessage,
+#messageStatus {
+    color: #68778c;
+    font-size: 13px;
+}
+/* ================================
+   Responsive
+================================ */
+@media (max-width: 760px) {
+    #userInfo > header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px 24px;
+    }
+    #userInfo > header > div {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    #findUserSection,
+    #foundUser,
+    #friendRequestsSection,
+    #friendsSection,
+    #conversationsSection,
+    #chatSection {
+        width: min(100% - 32px, 900px);
+    }
+    #findUserForm {
+        flex-direction: column;
+    }
+    #findUserForm button {
+        width: 100%;
+    }
+    #friendRequests > div,
+    #friendsList > div,
+    #conversationsList > div {
+        align-items: flex-start;
+        gap: 12px;
+    }
+    #friendRequests button,
+    #conversationsList button {
+        flex-shrink: 0;
+    }
+}
+@media (max-width: 480px) {
+    #userInfo > header > div {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    #userInfo h2 {
+        font-size: 18px;
+    }
+    #chatSection {
+        padding: 16px;
+    }
+}
+/* Friendship actions and confirmations. */
+[hidden] { display: none !important; }
+#blockedUsersSection, #outgoingRequestsSection { width: min(100% - 48px, 900px); margin: 40px auto 0; }
+#blockedUsers, #outgoingRequests { display: flex; flex-direction: column; gap: 8px; }
+#keyStatus { padding: 10px 24px; margin: 0; background: #eef4ff; color: #2451a2; font-size: 13px; }
+#operationStatus { width: min(100% - 48px, 900px); margin: 16px auto; color: #23663b; overflow-wrap: anywhere; }
+#operationStatus:empty { display: none; }
+#operationStatus.error { color: #a12626; }
+#userInfo { padding-bottom: 30px; }
+#userInfo > header > div { flex-wrap: wrap; }
+#userInfo > header { gap: 24px; padding-top: 18px; padding-bottom: 18px; }
+#userInfo button, #confirmDialog button { padding: 9px 14px; border: 1px solid transparent; border-radius: 7px; background: #1877f2; color: white; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
+#userInfo button:hover, #confirmDialog button:hover { background: #0d65d9; }
+#userInfo button.danger { color: #a12626; background: #fff3f3; border-color: #f1d3d3; }
+#userInfo button.danger:hover { background: #ffe5e5; }
+#userInfo button:disabled { cursor: not-allowed; opacity: .5; }
+#userInfo button:focus-visible, #confirmDialog button:focus-visible { outline: 3px solid #8db5ff; outline-offset: 3px; }
+.row-actions, #foundExtraActions, #chatActions { display: flex; flex-wrap: wrap; gap: 8px; }
+#foundExtraActions { margin-top: 10px; }
+#chatActions { margin-bottom: 16px; }
+#userInfo .list-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; padding: 14px 16px; border: 1px solid #e1e8f1; border-radius: 9px; background: white; }
+.list-info { min-width: 0; }
+#userInfo .list-title { margin: 0 0 5px; font-weight: 600; color: #17233c; overflow-wrap: anywhere; }
+#userInfo .list-detail { margin: 0; color: #728097; font-size: 12px; overflow-wrap: anywhere; }
+#userInfo .empty-state { margin: 0; padding: 14px; color: #728097; font-size: 14px; border: 1px dashed #dde5ef; border-radius: 8px; }
+#messageForm { align-items: flex-end; }
+#messageInput { height: auto; min-height: 70px; resize: vertical; padding: 12px; line-height: 1.5; }
+#messagesList { min-height: 260px; gap: 12px; }
+.chat-message { align-self: flex-start; max-width: 85%; padding: 12px 14px; background: #eef2f8; border-radius: 12px 12px 12px 2px; }
+.chat-message.mine { align-self: flex-end; background: #e1edff; border-radius: 12px 12px 2px 12px; }
+#userInfo .message-sender { font-size: 12px; font-weight: 600; color: #395c95; margin: 0 0 5px; overflow-wrap: anywhere; }
+#userInfo .message-text { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.5; margin: 0; }
+.chat-message time { display: block; margin-top: 7px; font-size: 10px; color: #728097; }
+#confirmDialog { width: min(100% - 32px, 450px); padding: 28px; border: 1px solid #dce5f1; border-radius: 14px; color: #17233c; box-shadow: 0 20px 80px #152d5840; }
+#confirmDialog::backdrop { background: #14264388; }
+#confirmTitle { margin: 0 0 14px; font-size: 22px; }
+#confirmDescription { line-height: 1.6; overflow-wrap: anywhere; }
+.confirm-actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px; }
+#confirmDialog #confirmNo { background: #edf1f7; color: #425575; }
+@media (max-width: 760px) { #blockedUsersSection, #outgoingRequestsSection, #operationStatus { width: min(100% - 32px, 900px); } #userInfo .list-row { align-items: flex-start; flex-direction: column; } .chat-message { max-width: 95%; } }
+
+.security-panel { border: 1px solid #6986ac; padding: 1rem; margin: 1rem 0; border-radius: 8px; }
+.security-panel code, #recoveryCode { display: block; overflow-wrap: anywhere; padding: .8rem; background: #edf3fa; color: #142c49; }
+#recoverySaved { width: auto; }
+dialog { max-width: min(600px, 85vw); }
